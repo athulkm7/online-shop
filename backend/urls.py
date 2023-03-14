@@ -1,0 +1,26 @@
+from django.urls import path
+from backend import views
+urlpatterns =[
+    path('indexhtmlpage/',views.indexhtmlpage,name="indexhtmlpage"),
+    path('adminpage/',views.adminpage,name="adminpage"),
+    path('savedata/',views.savedata,name="savedata"),
+    path('displayadmin/',views.displayadmin,name="displayadmin"),
+    path('editstudpage/<int:dataid>/', views.editstudpage, name="editstudpage"),
+    path('DeleteData/<int:dataid>/', views.DeleteData, name="DeleteData"),
+    path('updatedata/<int:dataid>/', views.updatedata, name="updatedata"),
+    path('addcategory/', views.addcategory, name="addcategory"),
+    path('addcat/', views.addcat, name="addcat"),
+    path('displaycat/', views.displaycat, name="displaycat"),
+    path('editcat/<int:dataid>/', views.editcat, name="editcat"),
+    path('Deletecat/<int:dataid>/', views.Deletecat, name="Deletecat"),
+    path('updatecategory/<int:dataid>/', views.updatecategory, name="updatecategory"),
+    path('addpropage/',views.addpropage,name="addpropage"),
+    path('savepro/', views.savepro, name="savepro"),
+    path('dispropage/', views.dispropage, name="dispropage"),
+    path('editpropage/<int:dataid>/', views.editpropage, name="editpropage"),
+    path('updateprodata/<int:dataid>/', views.updateprodata, name="updateprodata"),
+    path('deleteprodata/<int:dataid>/', views.deleteprodata, name="deleteprodata"),
+    path('loginpage/',views.loginpage, name="loginpage"),
+    path('adminlogin/',views.adminlogin, name="adminlogin"),
+    path('adminlogout/', views.adminlogout, name="adminlogout"),
+]

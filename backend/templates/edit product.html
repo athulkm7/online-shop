@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center><h1>WELCOME</h1></center>
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">WE MART</h4>
+<!--                    <p class="card-description"> Basic form elements </p>-->
+                     <form class="forms-sample" method="post" action="{% url 'updateprodata' dataid=data.id %}" class="forms-sample" enctype="multipart/form-data"
+                      method="post">
+                      {% csrf_token %}
+                       <div class="form-group">
+                        <label for="exampleSelectcategory">Category</label>
+                        <select class="form-control" id="exampleSelectcategory" name="category" value="{{data.Name}}">
+                          <option>Select</option>
+                            {% for d in da %}
+                           <option>{{d.Name}}</option>
+                            {% endfor %}
+
+                        </select>
+                      </div>
+                       <div class="form-group">
+                        <label for="exampleInputdescription">Description</label>
+                        <input type="text" class="form-control" id="exampleInputdescription" placeholder="Description" name="desc" value="{{data.Desc}}">
+                      </div>
+                    <div class="form-group">
+                        <label for="exampleInputprice">Price</label>
+                        <input type="text" class="form-control" id="exampleInputprice" placeholder="price" name="price"  value="{{data.price}}">
+                      </div>
+                       <div class="form-group">
+                        <label for="exampleInputquantity">Quantity</label>
+                        <input type="text" class="form-control" id="exampleInputquantity" placeholder="quantity" name="quantity" value="{{data.Quantity}}">
+                      </div>
+                     <div>
+                        <label> CATEGORY IMAGE </label>
+                          <img src="{{data.Image.url}}" width="200px" height="200px">
+                        <input type="file" name="image">
+<!--                        <input type="file" name="image">-->
+                      </div>
+
+
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-dark">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+</body>
+</html>
+{% endblock %}
